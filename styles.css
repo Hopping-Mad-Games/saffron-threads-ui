@@ -1,20 +1,25 @@
-/* Base & Resets */
 :root {
-    --header-bg: #4b465b;
-    /* Deep slate/purple */
-    --header-text: #ffffff;
-    --peach-bg: #fcb796;
-    /* Salmon peach */
-    --cream-card-bg: #f5ebd5;
-    --text-color: #1c1c1c;
-    --cta-btn-bg: #f6ab86;
-    --cta-btn-shadow: rgba(0, 0, 0, 0.15);
+    --header-bg: #f9f5e8;
+    --logo-color: #f29879;
+    /* Peach salmon */
+
+    --left-bg: #fcad46;
+    /* Deeper orange */
+    --center-bg: #8ce3f7;
+    /* Vibrant Light blue (closer to image) */
+    --right-bg: #d0eefb;
+    /* Pale blue */
+
+    --text-dark: #514e54;
+    --card-bg: #f6efdf;
+    --card-wrapper-bg: #cdefeb;
+    /* Lighter cyan for layer between */
+
+    --leather-base: #ca8545;
+    --btn-text: #ead49b;
 
     --font-logo: 'Playfair Display', serif;
-    --font-serif: 'Lora', serif;
     --font-sans: 'Montserrat', sans-serif;
-
-    --container-width: 1200px;
 }
 
 * {
@@ -25,237 +30,329 @@
 
 body {
     font-family: var(--font-sans);
-    background-color: var(--peach-bg);
-    color: var(--text-color);
-    line-height: 1.6;
+    background-color: var(--header-bg);
     overflow-x: hidden;
+    margin: 0;
 }
 
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
 .main-header {
     background-color: var(--header-bg);
-    color: var(--header-text);
-    padding: 1.5rem 0;
-    /* Reduced padding since logo is large */
-}
-
-.main-header .container {
-    max-width: 95%;
+    padding: 12px 5vw;
     display: flex;
     justify-content: space-between;
+    /* Changed to space-between to push nav left, logo right */
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+.header-nav {
+    display: flex;
     align-items: center;
 }
-
-.logo-text {
-    font-family: var(--font-logo);
-    font-size: 3.5rem;
-    /* Reduced to ensure it fits on a single horizontal line */
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    /* Reduced spacing */
-    white-space: nowrap;
-    /* Prevent logo from wrapping */
-}
-
-
 
 .nav-links {
     list-style: none;
     display: flex;
-    flex-wrap: nowrap;
-    /* Force single line */
-    gap: 10px;
-    /* Reduced gap to save horizontal space */
+    gap: 20px;
+    /* Space between links */
 }
 
-.nav-links a {
-    color: var(--header-text);
+.nav-links li a {
     text-decoration: none;
+    color: var(--text-dark);
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 5px;
-    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: var(--peach-bg);
+.nav-links li a:hover {
+    color: var(--leather-base);
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
-/* Geometric Divider */
-.geometric-divider {
-    height: 40px;
-    background-color: #ffffff;
-    /* A repeating SVG pattern resembling the triangular borders */
-    background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L10,0 L20,20 L30,0 L40,20 L30,40 L20,20 L10,40 Z" fill="none" stroke="%234b465b" stroke-width="1.5"/><line x1="0" y1="2" x2="40" y2="2" stroke="%234b465b" stroke-width="2"/><line x1="0" y1="38" x2="40" y2="38" stroke="%234b465b" stroke-width="2"/></svg>');
-    background-repeat: repeat-x;
-    background-size: 40px 40px;
-    background-position: center;
-    border-top: 3px solid #fdfbf6;
-    border-bottom: 3px solid #fdfbf6;
+.logo-text {
+    font-family: var(--font-logo);
+    color: var(--logo-color);
+    font-size: 4.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
 /* Hero Section */
 .hero-section {
-    padding: 40px 0 80px 0;
+    display: flex;
+    width: 100%;
+    /* Let the inner contents and panel heights dictate layout, but ensure a min size */
+    height: calc(100vh - 100px);
+    min-height: 500px;
+    max-height: 850px;
+}
+
+.panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Left Panel */
+.left-panel {
+    width: 25%;
+    background-color: var(--left-bg);
+    position: relative;
+    align-items: flex-end;
+    /* Align image to bottom */
+}
+
+/* Right Panel */
+.right-panel {
+    width: 25%;
+    background-color: var(--right-bg);
+    position: relative;
+    align-items: flex-end;
+}
+
+.model-img {
+    height: 100%;
+    max-height: 100%;
+    /* Ensure it fits perfectly */
+    object-fit: contain;
+    object-position: center bottom;
+    /* Anchor to bottom edge exactly */
+}
+
+/* Center Panel */
+.center-panel {
+    width: 50%;
+    /* Need very specific light blue */
+    background: linear-gradient(135deg, #a4ddf0 0%, #8acbe5 100%);
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    /* Let flex scale stuff */
+    position: relative;
 }
 
 .hero-title {
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    color: #4b465b;
-    margin-bottom: 40px;
-    display: inline-block;
-    /* Required for a tight underline */
-    padding-bottom: 8px;
-    /* Repeating SVG background to look like a stitched thread */
-    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="4" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="2" x2="12" y2="2" stroke="%234b465b" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 8"/></svg>');
-    background-repeat: repeat-x;
-    background-position: bottom;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    font-family: var(--font-sans);
+    line-height: 1.15;
+    z-index: 5;
 }
 
-/* Content Layout */
-.content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    position: relative;
-    padding-bottom: 60px;
-    /* Space for absolute positioning overlap */
-}
-
-/* Text Card */
-.text-card {
-    background-color: var(--cream-card-bg);
-    padding: 30px;
-    width: 40%;
-    min-width: 350px;
-    border: 3px solid white;
-    border-radius: 2px;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.05);
-    /* very subtle */
-    position: relative;
-    z-index: 2;
-}
-
-.text-card p {
-    font-size: 1.15rem;
-    margin-bottom: 10px;
-    color: #222;
+.hero-title .line-1 {
+    font-size: 2.3vw;
+    /* Use vw for dynamic sizing relative to screen */
     font-weight: 400;
-}
-
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 12px 30px;
-    background: linear-gradient(180deg, #f9bda0 0%, #ebb495 100%);
-    color: white;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: 300;
-    border-radius: 4px;
-    box-shadow: 2px 4px 8px var(--cta-btn-shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Images Wrap */
-.images-wrapper {
-    width: 55%;
-    display: flex;
-    position: relative;
-    z-index: 1;
-}
-
-/* Polaroid Frames */
-.polaroid-frame {
-    background-color: white;
-    padding: 15px 15px 40px 15px;
-    /* Thicker bottom padding for polaroid look */
-    border: 1px solid #ddd;
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    position: absolute;
-    transition: transform 0.3s ease;
-}
-
-.polaroid-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    letter-spacing: 0.05em;
     display: block;
 }
 
-.image-1 {
-    width: 280px;
-    height: 380px;
-    top: 20px;
-    left: 0;
-    z-index: 2;
-    transform: rotate(-2deg);
+.hero-title .line-2 {
+    font-size: 3.8vw;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    display: block;
 }
 
-.image-1:hover {
-    transform: rotate(0deg) scale(1.02);
-    z-index: 4;
+/* Center Card */
+.center-card-wrapper {
+    background-color: #d1ecf6;
+    /* Very gentle pale blue */
+    padding: 2vw 2.5vw;
+    width: 85%;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 5;
 }
 
-.image-2 {
-    width: 300px;
-    height: 420px;
-    top: -10px;
-    left: 220px;
+/* Inner Beige Card */
+.center-card {
+    background-color: var(--card-bg);
+    text-align: center;
+    padding: 3vw 2vw;
+}
+
+.card-title {
+    font-family: var(--font-logo);
+    color: var(--text-dark);
+    font-size: 4.8vw;
+    font-weight: 400;
+    /* Regular weight in original */
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.card-subtitle {
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    font-size: 1.1vw;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin-bottom: 2.5vw;
+    text-transform: uppercase;
+}
+
+/* Leather Button */
+.leather-button {
+    display: inline-block;
+    background: #c3844a;
+    background-image:
+        linear-gradient(to bottom, #d2945d, #b57037);
+    color: var(--btn-text);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 1.25vw;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 1vw 3vw;
+    border-radius: 8px;
+    box-shadow:
+        0 8px 15px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    border: 1px solid #7c441b;
+    position: relative;
+    text-shadow:
+        1px 1px 0px rgba(255, 255, 255, 0.1),
+        -1px -1px 1px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease;
     z-index: 1;
-    border: 6px solid white;
-    /* thicker frame */
-    box-shadow: inset 0 0 0 1px #eee, 5px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.image-2:hover {
-    transform: scale(1.02);
-    z-index: 4;
+/* Stitches */
+.leather-button::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1.5px dashed #6f3b14;
+    border-radius: 5px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.9;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .content-wrapper {
-        flex-direction: column;
-        align-items: center;
+.leather-button:hover {
+    transform: scale(1.04);
+}
+
+/* Handle really wide monitors gracefully */
+@media (min-width: 1400px) {
+    .hero-title .line-1 {
+        font-size: 32px;
     }
 
-    .text-card {
-        width: 100%;
-        margin-bottom: 60px;
+    .hero-title .line-2 {
+        font-size: 52px;
     }
 
-    .images-wrapper {
-        width: 100%;
-        height: 500px;
+    .center-card-wrapper {
+        padding: 30px 40px;
+    }
+
+    .center-card {
+        padding: 40px 30px;
+    }
+
+    .card-title {
+        font-size: 65px;
+    }
+
+    .card-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .leather-button {
+        font-size: 18px;
+        padding: 15px 45px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .logo-text {
+        font-size: 4rem;
+    }
+
+    .hero-title .line-1 {
+        font-size: 3vw;
+    }
+
+    .hero-title .line-2 {
+        font-size: 4.5vw;
+    }
+
+    .card-title {
+        font-size: 6vw;
+    }
+
+    .card-subtitle {
+        font-size: 1.5vw;
+    }
+
+    .leather-button {
+        font-size: 1.8vw;
+        padding: 1.5vw 3vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
         justify-content: center;
     }
 
-    .image-1 {
-        left: 10%;
+    .logo-text {
+        margin-right: 0;
+        font-size: 3rem;
     }
 
-    .image-2 {
-        left: 45%;
+    .hero-section {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-panel,
+    .center-panel,
+    .right-panel {
+        width: 100%;
+        min-height: 400px;
+    }
+
+    .hero-title .line-1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-title .line-2 {
+        font-size: 2.2rem;
+    }
+
+    .card-title {
+        font-size: 3rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+
+    .leather-button {
+        font-size: 1rem;
+        padding: 12px 30px;
     }
 }
