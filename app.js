@@ -1,33 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add subtle entrance animation to the hero items
-    const textCard = document.querySelector('.text-card');
-    const image1 = document.querySelector('.image-1');
-    const image2 = document.querySelector('.image-2');
+    const centerCard = document.querySelector('.center-card-wrapper');
+    const imgLeft = document.querySelector('.img-left');
+    const imgRight = document.querySelector('.img-right');
+    const heroTitle = document.querySelector('.hero-title');
 
-    textCard.style.opacity = '0';
-    textCard.style.transform = 'translateY(20px)';
+    if (centerCard) {
+        centerCard.style.opacity = '0';
+        centerCard.style.transform = 'translateY(20px)';
+    }
 
-    image1.style.opacity = '0';
-    image1.style.transform = 'translateY(30px) rotate(-2deg)';
+    if (imgLeft) {
+        imgLeft.style.opacity = '0';
+        imgLeft.style.transform = 'translateX(-30px)';
+    }
 
-    image2.style.opacity = '0';
-    image2.style.transform = 'translateY(40px)';
+    if (imgRight) {
+        imgRight.style.opacity = '0';
+        imgRight.style.transform = 'translateX(30px)';
+    }
+
+    if (heroTitle) {
+        heroTitle.style.opacity = '0';
+        heroTitle.style.transform = 'translateY(-20px)';
+    }
 
     setTimeout(() => {
-        textCard.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        textCard.style.opacity = '1';
-        textCard.style.transform = 'translateY(0)';
+        if (heroTitle) {
+            heroTitle.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            heroTitle.style.opacity = '1';
+            heroTitle.style.transform = 'translateY(0)';
+        }
     }, 100);
 
     setTimeout(() => {
-        image1.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        image1.style.opacity = '1';
-        image1.style.transform = 'translateY(0) rotate(-2deg)';
+        if (centerCard) {
+            centerCard.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            centerCard.style.opacity = '1';
+            centerCard.style.transform = 'translateY(0)';
+        }
     }, 300);
 
     setTimeout(() => {
-        image2.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        image2.style.opacity = '1';
-        image2.style.transform = 'translateY(0)';
+        if (imgLeft) {
+            imgLeft.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            imgLeft.style.opacity = '1';
+            imgLeft.style.transform = 'translateX(0)';
+        }
+        if (imgRight) {
+            imgRight.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            imgRight.style.opacity = '1';
+            imgRight.style.transform = 'translateX(0)';
+        }
     }, 500);
 });
