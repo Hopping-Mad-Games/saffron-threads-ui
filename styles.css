@@ -1,0 +1,261 @@
+/* Base & Resets */
+:root {
+    --header-bg: #4b465b;
+    /* Deep slate/purple */
+    --header-text: #ffffff;
+    --peach-bg: #fcb796;
+    /* Salmon peach */
+    --cream-card-bg: #f5ebd5;
+    --text-color: #1c1c1c;
+    --cta-btn-bg: #f6ab86;
+    --cta-btn-shadow: rgba(0, 0, 0, 0.15);
+
+    --font-logo: 'Playfair Display', serif;
+    --font-serif: 'Lora', serif;
+    --font-sans: 'Montserrat', sans-serif;
+
+    --container-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--peach-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 0;
+    /* Reduced padding since logo is large */
+}
+
+.main-header .container {
+    max-width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-family: var(--font-logo);
+    font-size: 3.5rem;
+    /* Reduced to ensure it fits on a single horizontal line */
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    /* Reduced spacing */
+    white-space: nowrap;
+    /* Prevent logo from wrapping */
+}
+
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    /* Force single line */
+    gap: 10px;
+    /* Reduced gap to save horizontal space */
+}
+
+.nav-links a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--peach-bg);
+}
+
+/* Geometric Divider */
+.geometric-divider {
+    height: 40px;
+    background-color: #ffffff;
+    /* A repeating SVG pattern resembling the triangular borders */
+    background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L10,0 L20,20 L30,0 L40,20 L30,40 L20,20 L10,40 Z" fill="none" stroke="%234b465b" stroke-width="1.5"/><line x1="0" y1="2" x2="40" y2="2" stroke="%234b465b" stroke-width="2"/><line x1="0" y1="38" x2="40" y2="38" stroke="%234b465b" stroke-width="2"/></svg>');
+    background-repeat: repeat-x;
+    background-size: 40px 40px;
+    background-position: center;
+    border-top: 3px solid #fdfbf6;
+    border-bottom: 3px solid #fdfbf6;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 40px 0 80px 0;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #4b465b;
+    margin-bottom: 40px;
+    display: inline-block;
+    /* Required for a tight underline */
+    padding-bottom: 8px;
+    /* Repeating SVG background to look like a stitched thread */
+    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="4" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="2" x2="12" y2="2" stroke="%234b465b" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 8"/></svg>');
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+
+/* Content Layout */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+    padding-bottom: 60px;
+    /* Space for absolute positioning overlap */
+}
+
+/* Text Card */
+.text-card {
+    background-color: var(--cream-card-bg);
+    padding: 30px;
+    width: 40%;
+    min-width: 350px;
+    border: 3px solid white;
+    border-radius: 2px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.05);
+    /* very subtle */
+    position: relative;
+    z-index: 2;
+}
+
+.text-card p {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    color: #222;
+    font-weight: 400;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: linear-gradient(180deg, #f9bda0 0%, #ebb495 100%);
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 300;
+    border-radius: 4px;
+    box-shadow: 2px 4px 8px var(--cta-btn-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Images Wrap */
+.images-wrapper {
+    width: 55%;
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+/* Polaroid Frames */
+.polaroid-frame {
+    background-color: white;
+    padding: 15px 15px 40px 15px;
+    /* Thicker bottom padding for polaroid look */
+    border: 1px solid #ddd;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.polaroid-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-1 {
+    width: 280px;
+    height: 380px;
+    top: 20px;
+    left: 0;
+    z-index: 2;
+    transform: rotate(-2deg);
+}
+
+.image-1:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 4;
+}
+
+.image-2 {
+    width: 300px;
+    height: 420px;
+    top: -10px;
+    left: 220px;
+    z-index: 1;
+    border: 6px solid white;
+    /* thicker frame */
+    box-shadow: inset 0 0 0 1px #eee, 5px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-2:hover {
+    transform: scale(1.02);
+    z-index: 4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-card {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    .images-wrapper {
+        width: 100%;
+        height: 500px;
+        justify-content: center;
+    }
+
+    .image-1 {
+        left: 10%;
+    }
+
+    .image-2 {
+        left: 45%;
+    }
+}
