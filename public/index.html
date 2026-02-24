@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saffron Threads Template Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="backdrop-shape shape-a" aria-hidden="true"></div>
+    <div class="backdrop-shape shape-b" aria-hidden="true"></div>
+
+    <header class="topbar">
+        <div class="brand-block">
+            <p class="eyebrow">Saffron Threads Studio</p>
+            <h1>Template Showcase</h1>
+        </div>
+
+        <div class="search-block">
+            <label for="template-search">Find a template</label>
+            <input id="template-search" type="search" placeholder="Try 'editorial', 'kids', or 'luxury'">
+        </div>
+    </header>
+
+    <main class="layout">
+        <aside class="template-rail">
+            <div class="section-title-row">
+                <h2>Template Library</h2>
+                <p id="results-count">0 templates</p>
+            </div>
+
+            <div id="template-list" class="template-list" role="listbox" aria-label="Templates"></div>
+            <p id="empty-state" class="empty-state" hidden>No templates match your search.</p>
+
+            <div class="rail-actions">
+                <button id="prev-template" type="button">Previous</button>
+                <button id="next-template" type="button">Next</button>
+            </div>
+        </aside>
+
+        <section class="preview-stage" aria-live="polite">
+            <div class="preview-header">
+                <div>
+                    <p class="kicker">Active Preview</p>
+                    <h2 id="active-template-name">Loading...</h2>
+                    <p id="active-template-description" class="template-description"></p>
+                    <div id="active-template-tags" class="tag-row"></div>
+                </div>
+
+                <div class="frame-controls" role="group" aria-label="Preview frame size">
+                    <button class="frame-option is-active" data-frame="desktop" type="button">Desktop</button>
+                    <button class="frame-option" data-frame="tablet" type="button">Tablet</button>
+                    <button class="frame-option" data-frame="mobile" type="button">Mobile</button>
+                </div>
+            </div>
+
+            <div id="device-shell" class="device-shell" data-frame="desktop">
+                <div class="shell-top">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <p id="template-path">/templates/template-1/index.html</p>
+                </div>
+                <iframe id="template-frame" title="Template preview"></iframe>
+            </div>
+
+            <div class="preview-footer">
+                <a id="open-template" href="#" target="_blank" rel="noopener noreferrer">Open Template</a>
+                <a id="open-directory" href="#" target="_blank" rel="noopener noreferrer">Open Directory</a>
+                <p id="active-position">Template 1 of 3</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

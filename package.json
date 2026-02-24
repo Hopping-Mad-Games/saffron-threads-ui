@@ -1,0 +1,13 @@
+{
+  "name": "saffron-threads-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Saffron Threads template showcase with Express backend",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
