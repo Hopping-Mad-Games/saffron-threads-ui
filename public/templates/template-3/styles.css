@@ -31,7 +31,8 @@ body {
 /* Header / Banner */
 .top-banner {
     display: flex;
-    align-items: center;
+    align-items: stretch;
+    justify-content: space-between;
     position: relative;
     background: linear-gradient(90deg, var(--gold-primary) 0%, var(--gold-light) 50%, var(--gold-primary) 100%);
     padding: 20px 60px;
@@ -44,6 +45,7 @@ body {
     flex-shrink: 0;
     position: relative;
     z-index: 30;
+    width: 200px;
 }
 
 .logo-oval {
@@ -56,7 +58,7 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: -90px;
+    top: -30px;
     left: 20px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -67,17 +69,73 @@ body {
     height: auto;
 }
 
-.tagline-container {
+.header-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
     flex-grow: 1;
-    text-align: right;
     padding-right: 20px;
+    gap: 15px;
+    padding-bottom: 5px;
+}
+
+.tagline-container {
+    text-align: right;
 }
 
 .tagline {
-    color: var(--purple-dark);
-    font-size: 1.3rem;
+    color: #ffffff;
+    font-size: 1.5rem;
     letter-spacing: 4px;
     font-weight: 500;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 30;
+    padding-bottom: 0px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: var(--purple-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--purple-dark);
+    transition: width 0.3s ease;
+}
+
+.nav-button:hover {
+    color: var(--text-dark);
+}
+
+.nav-button:hover::after {
+    width: 100%;
 }
 
 /* Main Layout */
