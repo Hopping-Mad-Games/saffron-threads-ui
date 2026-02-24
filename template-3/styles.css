@@ -36,7 +36,7 @@ body {
     background: linear-gradient(90deg, var(--gold-primary) 0%, var(--gold-light) 50%, var(--gold-primary) 100%);
     padding: 20px 60px;
     height: 120px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 20;
 }
 
@@ -58,7 +58,7 @@ body {
     position: absolute;
     top: -90px;
     left: 20px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 .tagline {
-    color: #fff;
+    color: var(--purple-dark);
     font-size: 1.3rem;
     letter-spacing: 4px;
     font-weight: 500;
@@ -106,14 +106,14 @@ body {
     width: 100%;
     height: 350px;
     background-color: var(--purple-dark);
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.7) 1px, transparent 1px),
-        radial-gradient(circle at 40% 60%, rgba(255,255,255,0.5) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.8) 1px, transparent 1px),
-        radial-gradient(circle at 60% 80%, rgba(255,255,255,0.6) 2px, transparent 2px),
-        linear-gradient(to right, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.7) 1px, transparent 1px),
+        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.5) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+        radial-gradient(circle at 60% 80%, rgba(255, 255, 255, 0.6) 2px, transparent 2px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
     background-size: 80px 80px;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.4);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
 }
 
 .bg-gold-stripe-1 {
@@ -166,11 +166,11 @@ body {
 .text-block {
     background-color: var(--off-white);
     padding: 40px 60px 60px 60px;
-    box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 10;
     width: 100%;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .main-heading {
@@ -219,10 +219,10 @@ body {
     border-radius: 12px;
     cursor: pointer;
     position: relative;
-    box-shadow: 
-        0 10px 20px rgba(0,0,0,0.25), 
-        inset 0 2px 4px rgba(255,255,255,0.4),
-        inset 0 -2px 4px rgba(0,0,0,0.2);
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.25),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -243,12 +243,13 @@ body {
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* Photo Grid */
 .photo-grid {
-    flex: 0 0 45%;
+    flex: 0 0 50%;
+    /* Extended slightly from 45% for more space */
     position: relative;
     min-height: 650px;
     z-index: 10;
@@ -256,25 +257,39 @@ body {
 
 .photo-frame {
     position: absolute;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.photo-frame:hover {
+    transform: scale(1.03) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    z-index: 20 !important;
+    /* Bring to front on hover */
 }
 
 .frame-left {
     background-color: var(--blue-pastel);
-    width: 340px;
-    height: 520px;
-    left: -40px;
-    top: 100px;
+    width: 320px;
+    /* Slightly narrower */
+    height: 500px;
+    left: -80px;
+    /* Shifted further left */
+    top: 130px;
+    /* Shifted down */
     z-index: 5;
 }
 
 .frame-right {
     background-color: var(--orange-pastel);
-    width: 420px;
-    height: 580px;
-    right: 30px;
-    top: 30px;
+    width: 360px;
+    /* Slightly narrower */
+    height: 550px;
+    right: 0px;
+    /* Shifted further right */
+    top: 20px;
+    /* Shifted up slightly */
     z-index: 4;
 }
 
@@ -294,13 +309,29 @@ body {
     position: absolute;
     color: white;
     font-size: 20px;
-    text-shadow: 0 0 12px rgba(255,255,255,1);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1);
     animation: twinkle 3s infinite alternate;
 }
 
-.s1 { top: 30%; left: 15%; font-size: 28px; }
-.s2 { top: 70%; left: 35%; font-size: 22px; animation-delay: 1s; }
-.s3 { top: 20%; left: 45%; font-size: 36px; animation-delay: 2s; }
+.s1 {
+    top: 30%;
+    left: 15%;
+    font-size: 28px;
+}
+
+.s2 {
+    top: 70%;
+    left: 35%;
+    font-size: 22px;
+    animation-delay: 1s;
+}
+
+.s3 {
+    top: 20%;
+    left: 45%;
+    font-size: 36px;
+    animation-delay: 2s;
+}
 
 .floating-sparkle {
     position: absolute;
@@ -309,11 +340,18 @@ body {
     color: white;
     font-size: 45px;
     z-index: 20;
-    text-shadow: 0 0 15px rgba(255,255,255,1);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
     animation: twinkle 4s infinite alternate;
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.4; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1.1); }
+    0% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
 }
